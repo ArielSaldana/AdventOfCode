@@ -1,12 +1,13 @@
 const fs = require('fs');
 
-const chars = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-    'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-
 let charMap = {}
-for (let i = 0; i < chars.length; i++) {
-    const letter = chars[i];
-    charMap[letter] = i+1;
+let letterRange = "azAZ"
+for (
+    let i = letterRange.charCodeAt(0), j = letterRange.charCodeAt(2); i <= letterRange.charCodeAt(1); i++) {
+    const lowerCaseLetter = String.fromCharCode(i);
+    const upperCaseLetter = String.fromCharCode(j);
+    charMap[lowerCaseLetter] = i - 96;
+    charMap[upperCaseLetter] = i - 70;
 }
 
 function solveProblem(input) {
