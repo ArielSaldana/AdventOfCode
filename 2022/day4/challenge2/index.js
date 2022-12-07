@@ -11,14 +11,12 @@ function solveProblem(input) {
         secondPairPointsArray[0] = parseInt(secondPairPointsArray[0]);
         secondPairPointsArray[1] = parseInt(secondPairPointsArray[1]);
 
-        const startIndex = firstPairPointsArray[0] <= secondPairPointsArray[0] ? firstPairPointsArray[0] : secondPairPointsArray[0]
-        const endIndex = firstPairPointsArray[1] >= secondPairPointsArray[1] ? firstPairPointsArray[1] : secondPairPointsArray[1]
+        const firstRange = firstPairPointsArray[0] < secondPairPointsArray[0] ? firstPairPointsArray : secondPairPointsArray
+        const secondRange = firstPairPointsArray[0] < secondPairPointsArray[0] ? secondPairPointsArray : firstPairPointsArray
 
-        if ((firstPairPointsArray[0] == startIndex && firstPairPointsArray[1] == endIndex) ||
-            (secondPairPointsArray[0] == startIndex && secondPairPointsArray[1] == endIndex)) {
+        if (firstRange[1] >= secondRange[0]) {
             totalNumberOfTotallyCaptureRange+=1;
         }
-
     }
     return totalNumberOfTotallyCaptureRange;
 }
