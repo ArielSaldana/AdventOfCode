@@ -20,10 +20,34 @@ function solveProblem(input) {
 
     //get ready to start processing creates movement sequences.
     const start = index + 1;
-    console.log(index);
+
+    for (let i = start; i < input.length; i++) {
+        const regex = /move (?<amount>\d+) from (?<from>\d*) to (?<to>\d*)/g
+
+        const instructions = input[i];
+        let output;
+
+        while (output = regex.exec(instructions)) {
+            const amount = output.groups.amount - 0 // 0 forces int from string
+            const from = output.groups.from - 1
+            const to = output.groups.to - 1
+
+            for (let j = 0; j < amount; j++) {
+                const value = crates[from].pop()
+                crates[to].push(value);
+            }
+        }
+    }
+
+    let returnString = "";
+    for (let i = 0; i < crates.length; i++) {
+        const val = crates[i].pop();
+        returnString += val.substring(1, val.length-2);
+    }
+    return returnString
 }
 
-fs.readFile(`${__dirname}/input_example.txt`, 'utf8', (err, data) => {
+fs.readFile(`${__dirname}/input.txt`, 'utf8', (err, data) => {
     if (err) {
         console.log(err);
         return;
