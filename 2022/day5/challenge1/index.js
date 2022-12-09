@@ -28,17 +28,26 @@ function solveProblem(input) {
         let output;
 
         while (output = regex.exec(instructions)) {
-            console.log(output.groups.amount)
-            console.log(output.groups.from)
-            console.log(output.groups.to)
-        }
+            const amount = output.groups.amount - 0 // 0 forces int from string
+            const from = output.groups.from - 1
+            const to = output.groups.to - 1
 
+            for (let j = 0; j < amount; j++) {
+                const value = crates[from].pop()
+                crates[to].push(value);
+            }
+        }
     }
 
-    console.log(index);
+    let returnString = "";
+    for (let i = 0; i < crates.length; i++) {
+        const val = crates[i].pop();
+        returnString += val.substring(1, val.length-2);
+    }
+    return returnString
 }
 
-fs.readFile(`${__dirname}/input_example.txt`, 'utf8', (err, data) => {
+fs.readFile(`${__dirname}/input.txt`, 'utf8', (err, data) => {
     if (err) {
         console.log(err);
         return;
