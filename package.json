@@ -9,6 +9,8 @@
     "runDay3Challenge1" : "node 2022/day3/challenge1/index.js",
     "runDay3Challenge2" : "node 2022/day3/challenge2/index.js",
     "runDay4Challenge1" : "node 2022/day4/challenge1/index.js",
-    "runDay4Challenge2" : "node 2022/day4/challenge2/index.js"
+    "runDay4Challenge2" : "node 2022/day4/challenge2/index.js",
+    "runDay5Challenge1" : "node 2022/day5/challenge1/index.js",
+    "runDay5Challenge2" : "node 2022/day5/challenge2/index.js"
   }
 }
