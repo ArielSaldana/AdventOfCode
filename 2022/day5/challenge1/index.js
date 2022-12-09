@@ -20,6 +20,21 @@ function solveProblem(input) {
 
     //get ready to start processing creates movement sequences.
     const start = index + 1;
+
+    for (let i = start; i < input.length; i++) {
+        const regex = /move (?<amount>\d+) from (?<from>\d*) to (?<to>\d*)/g
+
+        const instructions = input[i];
+        let output;
+
+        while (output = regex.exec(instructions)) {
+            console.log(output.groups.amount)
+            console.log(output.groups.from)
+            console.log(output.groups.to)
+        }
+
+    }
+
     console.log(index);
 }
 
