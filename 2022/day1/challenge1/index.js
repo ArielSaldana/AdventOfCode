@@ -3,7 +3,7 @@ const fs = require('fs');
 let highestNumberOfCalories = 0;
 let currentCaloriesSum = 0
 
-fs.readFile('./2022/day1/challenge1/input.txt', 'utf8', (err, data) => {
+fs.readFile(`${__dirname}/input.txt`, 'utf8', (err, data) => {
    if (err) {
        console.log(err);
        return;
