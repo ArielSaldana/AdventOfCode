@@ -36,7 +36,7 @@ function solveProblem(input) {
     return sumOfPriorities;
 }
 
-fs.readFile('./2022/day3/challenge1/input.txt', 'utf8', (err, data) => {
+fs.readFile(`${__dirname}/input.txt`, 'utf8', (err, data) => {
     if (err) {
         console.log(err);
         return;
